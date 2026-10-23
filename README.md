@@ -10,6 +10,19 @@ Landing page de venda consultiva dos bisturis elétricos (unidades eletrocirúrg
 - `schema.sql` – tabela `leads` do banco D1 `deltronix-leads`
 - `wrangler.jsonc` – configuração do Worker (assets + binding D1 `DB`)
 
+## CRM (`/admin`)
+
+Todo lead enviado pelo formulário entra automaticamente no CRM em **`/admin`**, na etapa **Novo**.
+
+- **Pipeline (Kanban):** Novo → Contatado → Qualificado → Proposta enviada → Negociação → Ganho / Perdido. Arraste os cards entre colunas.
+- **Lista:** tabela ordenável com todos os campos.
+- **Relatórios:** funil, leads por semana, por linha, país, perfil, prazo, origem (UTM), campanha e tipo de estabelecimento.
+- **Ficha do lead:** dados completos, botões de WhatsApp/e-mail/ligar, responsável, valor estimado (USD), data do próximo follow-up e histórico de atividades (notas, ligações, reuniões; mudanças de etapa são registradas automaticamente).
+- **Temperatura (Quente/Morno/Frio):** pontuação automática pelo prazo de compra, quantidade, perfil e tipo de estabelecimento.
+- Busca, filtros, exportação CSV e atualização automática a cada 60 s (avisa quando chega lead novo).
+
+**Login:** por enquanto o painel é aberto. Para proteger, crie o secret `ADMIN_PASSWORD` no Worker (Settings → Variables and Secrets); o navegador passará a pedir usuário `admin` + essa senha.
+
 ## Leads
 
 Cada envio do formulário é salvo no D1 `deltronix-leads` (tabela `leads`), incluindo UTMs, referrer e país do visitante.
