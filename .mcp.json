@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "gsc": {
+      "command": "bash",
+      "args": [".claude/scripts/gsc-mcp.sh"],
+      "env": {
+        "GSC_SKIP_OAUTH": "true",
+        "GSC_DATA_STATE": "all",
+        "GSC_ALLOW_DESTRUCTIVE": "false"
+      }
+    }
+  }
+}
